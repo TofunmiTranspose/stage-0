@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta theme-color="#f4f4f4" />
+    <title>Profile Card</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <article data-testid="test-profile-card" class="profile-card">
+      <figure data-testid="test-user-avatar" class="avatar-container">
+        <img id="avatar" src="ProfileIPic.png" alt="User Avatar" />
+      </figure>
+      <div>
+        <header>
+          <h2 data-testid="test-user-name" id="user-name">Tofunmi Paul</h2>
+          <p data-testid="test-user-bio" id="user-bio">
+            Frontend Engineer | React Expert | UI Lord
+          </p>
+        </header>
+        <p class="time">
+          Current Time <span data-testid="test-user-time" id="user-time"></span>
+        </p>
+        <nav data-testid="test-user-social-links" class="social-links">
+          <section>
+            <h4>Socials</h4>
+            <ul>
+              <li>
+                <a
+                  href="https://tofunmitranspose.vercel.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-testid="test-user-social-twitter"
+                  >Portfolio</a
+                >
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h4>Hobbies</h4>
+            <ul>
+              <li>React + Tailwind CSS</li>
+            </ul>
+          </section>
+          <section>
+            <h4>Dislikes</h4>
+            <ul>
+              <li>Vanilla</li>
+            </ul>
+          </section>
+        </nav>
+      </div>
+    </article>
+
+    <script src="index.js"></script>
+  </body>
+</html>
