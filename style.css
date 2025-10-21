@@ -75,6 +75,22 @@ h4 {
   align-items: center;
   margin: 0 auto;
 }
+.btns {
+  margin: 0.3rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+.btns a {
+  text-decoration: none;
+  font-size: 0.65rem;
+  font-weight: bold;
+  background: #000000eb;
+  border: none;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.2rem;
+}
 
 @media (max-width: 650px) {
   .profile-card {
@@ -98,5 +114,8 @@ h4 {
     margin: 0;
     display: block;
     text-align: center;
+  }
+  .btns {
+    justify-content: center;
   }
 }

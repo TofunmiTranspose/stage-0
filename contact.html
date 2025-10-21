@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Me</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 1rem;
+      }
+      h1 {
+        text-align: center;
+      }
+      form {
+        max-width: 500px;
+        width: 90%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      input,
+      textarea {
+        padding: 0.7rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 95%;
+        font-size: 1rem;
+      }
+      button {
+        padding: 0.7rem;
+        background: #000b70;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+      .error {
+        color: red;
+        margin: 0;
+        font-size: 0.75rem;
+      }
+      .success {
+        color: green;
+        font-size: 1rem;
+        text-align: center;
+      }
+      @media (max-width: 600px) {
+        body {
+          padding: 0.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Contact Me</h1>
+    <a
+      href="index.html"
+      style="
+        position: absolute;
+        top: 0.3rem;
+        left: 0.5rem;
+        font-size: smaller;
+        text-decoration: none;
+        font-weight: 500;
+      "
+      >back</a
+    >
+    <form id="contact-form" data-testid="test-contact-form">
+      <div>
+        <label for="name">Full Name</label>
+        <input
+          id="name"
+          data-testid="test-contact-name"
+          aria-describedby="error-name"
+        />
+        <p
+          id="error-name"
+          data-testid="test-contact-error-name"
+          class="error"
+          hidden
+        ></p>
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input
+          id="email"
+          data-testid="test-contact-email"
+          aria-describedby="error-email"
+        />
+        <p
+          id="error-email"
+          data-testid="test-contact-error-email"
+          class="error"
+          hidden
+        ></p>
+      </div>
+      <div>
+        <label for="subject">Subject</label>
+        <input
+          id="subject"
+          data-testid="test-contact-subject"
+          aria-describedby="error-subject"
+        />
+        <p
+          id="error-subject"
+          data-testid="test-contact-error-subject"
+          class="error"
+          hidden
+        ></p>
+      </div>
+      <div>
+        <label for="message">Message</label>
+        <textarea
+          id="message"
+          data-testid="test-contact-message"
+          aria-describedby="error-message"
+        ></textarea>
+        <p
+          id="error-message"
+          data-testid="test-contact-error-message"
+          class="error"
+          hidden
+        ></p>
+      </div>
+      <button type="submit" data-testid="test-contact-submit">Submit</button>
+    </form>
+    <p id="success" data-testid="test-contact-success" class="success" hidden>
+      Thank you! Your message has been sent.
+    </p>
+    <script>
+      const form = document.getElementById("contact-form");
+      const success = document.getElementById("success");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let valid = true;
+        function showError(id, msg) {
+          const el = document.getElementById("error-" + id);
+          el.textContent = msg;
+          el.hidden = false;
+        }
+        function clearError(id) {
+          document.getElementById("error-" + id).hidden = true;
+        }
+        const name = document.getElementById("name").value.trim();
+        if (!name) {
+          valid = false;
+          showError("name", "Full name is required");
+        } else clearError("name");
+        const email = document.getElementById("email").value.trim();
+        const emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+        if (!emailRegex.test(email)) {
+          valid = false;
+          showError("email", "Enter a valid email");
+        } else clearError("email");
+        const subject = document.getElementById("subject").value.trim();
+        if (!subject) {
+          valid = false;
+          showError("subject", "Subject is required");
+        } else clearError("subject");
+        const message = document.getElementById("message").value.trim();
+        if (message.length < 10) {
+          valid = false;
+          showError("message", "Message must be at least 10 characters");
+        } else clearError("message");
+        if (valid) {
+          success.hidden = false;
+          form.reset();
+        }
+      });
+    </script>
+  </body>
+</html>
