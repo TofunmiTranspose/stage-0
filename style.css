@@ -1,3 +1,17 @@
+/* Global link reset */
+a {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+/* Hover effect for links */
+a:hover,
+a:focus {
+  opacity: 0.8;
+  transition: 0.3s ease-in-out;
+}
+
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
@@ -68,6 +82,15 @@ h4 {
   justify-content: space-around;
   text-align: center;
 }
+.social-links a {
+  color: #000b70;
+  font-weight: 600;
+}
+
+.social-links a:hover {
+  text-decoration: underline;
+}
+
 .social-links li {
   margin-right: 20px;
   font-size: 0.8rem;
@@ -83,13 +106,20 @@ h4 {
 }
 .btns a {
   text-decoration: none;
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   font-weight: bold;
   background: #000000eb;
   border: none;
-  color: white;
-  padding: 0.3rem 0.6rem;
-  border-radius: 0.2rem;
+  color: #ffffff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.btns a:hover {
+  background: #222;
+  transform: translateY(-2px);
 }
 
 @media (max-width: 650px) {
